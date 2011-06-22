@@ -4,7 +4,7 @@ main([Max]) ->
   UpperLimit = list_to_integer(Max),
   io:format("sum of even Fibonacci numbers below ~p is ~p ~n", [UpperLimit, sum(1, 2, 2, UpperLimit)]).
 
-sum(First, Second, SumOfEvenNumbers, UpperLimit) when Second < UpperLimit ->
+sum(First, Second, SumOfEvenNumbers, UpperLimit) when First + Second < UpperLimit ->
   Third = First + Second,
   sum(Second, Third, SumOfEvenNumbers + Third * (1 - (Third rem 2)), UpperLimit);
 sum(_, _, SumOfEvenNumbers, _) ->
